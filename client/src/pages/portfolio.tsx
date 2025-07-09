@@ -4,6 +4,7 @@ import { ProjectCard } from "@/components/ui/project-card";
 import { ContactForm } from "@/components/ui/contact-form";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
+import { Badge } from "@/components/ui/badge";
 import { 
   Mail, 
   Phone, 
@@ -37,7 +38,7 @@ export default function Portfolio() {
 
   useEffect(() => {
     const handleScroll = () => {
-      const sections = ["home", "about", "projects", "contact"];
+      const sections = ["home", "about", "experience", "education", "certificates", "personal", "projects", "contact"];
       const scrollPosition = window.scrollY + 100;
 
       for (const section of sections) {
@@ -71,6 +72,81 @@ export default function Portfolio() {
     { name: "Python", icon: "🐍" },
     { name: "Databases", icon: "🗄️" }
   ];
+
+  const education = [
+    {
+      degree: "Master of Science in Computer Science",
+      school: "Stanford University",
+      year: "2018-2020",
+      description: "Specialized in Machine Learning and Software Engineering"
+    },
+    {
+      degree: "Bachelor of Science in Computer Engineering",
+      school: "UC Berkeley",
+      year: "2014-2018",
+      description: "Summa Cum Laude, Focus on Web Technologies"
+    }
+  ];
+
+  const certificates = [
+    {
+      name: "AWS Certified Solutions Architect",
+      issuer: "Amazon Web Services",
+      year: "2023",
+      badge: "🏆"
+    },
+    {
+      name: "Google Cloud Professional Developer",
+      issuer: "Google Cloud",
+      year: "2022",
+      badge: "☁️"
+    },
+    {
+      name: "Meta React Native Certification",
+      issuer: "Meta",
+      year: "2022",
+      badge: "📱"
+    },
+    {
+      name: "MongoDB Certified Developer",
+      issuer: "MongoDB",
+      year: "2021",
+      badge: "🍃"
+    }
+  ];
+
+  const experience = [
+    {
+      title: "Senior Full-Stack Developer",
+      company: "TechFlow Inc.",
+      period: "2022 - Present",
+      description: "Led development of enterprise web applications serving 100K+ users. Architected scalable microservices and mentored junior developers.",
+      technologies: ["React", "Node.js", "AWS", "MongoDB"]
+    },
+    {
+      title: "Frontend Developer",
+      company: "Digital Solutions Co.",
+      period: "2020 - 2022",
+      description: "Built responsive web applications and improved user experience across multiple product lines. Reduced load times by 40%.",
+      technologies: ["Vue.js", "TypeScript", "SASS", "Docker"]
+    },
+    {
+      title: "Junior Web Developer",
+      company: "StartupXYZ",
+      period: "2018 - 2020",
+      description: "Developed MVP features and contributed to product roadmap. Collaborated with design team to implement pixel-perfect interfaces.",
+      technologies: ["JavaScript", "React", "Python", "PostgreSQL"]
+    }
+  ];
+
+  const personalDetails = {
+    location: "San Francisco, CA",
+    availability: "Available for freelance projects",
+    languages: ["English (Native)", "Spanish (Fluent)", "French (Conversational)"],
+    interests: ["Open Source", "Machine Learning", "Photography", "Rock Climbing"],
+    workingHours: "9 AM - 6 PM PST",
+    responseTime: "Within 24 hours"
+  };
 
   const projects = [
     {
@@ -235,6 +311,220 @@ export default function Portfolio() {
                   </div>
                   <Users className="h-8 w-8 text-blue-200" />
                 </div>
+              </div>
+            </motion.div>
+          </div>
+        </div>
+      </section>
+
+      {/* Experience Section */}
+      <section id="experience" className="py-20 bg-white">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+          <motion.div 
+            className="text-center mb-16"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            viewport={{ once: true }}
+          >
+            <h2 className="text-3xl sm:text-4xl font-bold text-slate-900 mb-4">Professional Experience</h2>
+            <p className="text-lg text-slate-600 max-w-3xl mx-auto">
+              My journey through various roles and companies, building expertise in full-stack development.
+            </p>
+          </motion.div>
+
+          <motion.div 
+            className="space-y-8"
+            variants={staggerContainer}
+            initial="initial"
+            whileInView="animate"
+            viewport={{ once: true }}
+          >
+            {experience.map((job, index) => (
+              <motion.div
+                key={index}
+                variants={fadeInUp}
+                className="bg-white border border-slate-200 rounded-xl p-6 hover:shadow-lg transition-shadow"
+              >
+                <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-4">
+                  <div>
+                    <h3 className="text-xl font-semibold text-slate-900">{job.title}</h3>
+                    <p className="text-lg text-primary font-medium">{job.company}</p>
+                  </div>
+                  <span className="text-slate-600 font-medium mt-2 md:mt-0">{job.period}</span>
+                </div>
+                <p className="text-slate-600 mb-4 leading-relaxed">{job.description}</p>
+                <div className="flex flex-wrap gap-2">
+                  {job.technologies.map((tech) => (
+                    <Badge key={tech} variant="secondary" className="text-xs">
+                      {tech}
+                    </Badge>
+                  ))}
+                </div>
+              </motion.div>
+            ))}
+          </motion.div>
+        </div>
+      </section>
+
+      {/* Education Section */}
+      <section id="education" className="py-20 bg-slate-50">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+          <motion.div 
+            className="text-center mb-16"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            viewport={{ once: true }}
+          >
+            <h2 className="text-3xl sm:text-4xl font-bold text-slate-900 mb-4">Education</h2>
+            <p className="text-lg text-slate-600 max-w-3xl mx-auto">
+              Academic foundation that shaped my technical expertise and problem-solving approach.
+            </p>
+          </motion.div>
+
+          <div className="grid md:grid-cols-2 gap-8">
+            {education.map((edu, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 50 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: index * 0.1 }}
+                viewport={{ once: true }}
+                className="bg-white rounded-xl p-6 shadow-sm border border-slate-200 hover:shadow-lg transition-shadow"
+              >
+                <div className="text-primary text-lg font-semibold mb-2">{edu.year}</div>
+                <h3 className="text-xl font-semibold text-slate-900 mb-2">{edu.degree}</h3>
+                <p className="text-lg text-slate-700 font-medium mb-3">{edu.school}</p>
+                <p className="text-slate-600">{edu.description}</p>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Certificates Section */}
+      <section id="certificates" className="py-20 bg-white">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+          <motion.div 
+            className="text-center mb-16"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            viewport={{ once: true }}
+          >
+            <h2 className="text-3xl sm:text-4xl font-bold text-slate-900 mb-4">Certifications</h2>
+            <p className="text-lg text-slate-600 max-w-3xl mx-auto">
+              Professional certifications that validate my expertise in modern technologies.
+            </p>
+          </motion.div>
+
+          <motion.div 
+            className="grid md:grid-cols-2 lg:grid-cols-4 gap-6"
+            variants={staggerContainer}
+            initial="initial"
+            whileInView="animate"
+            viewport={{ once: true }}
+          >
+            {certificates.map((cert, index) => (
+              <motion.div
+                key={index}
+                variants={fadeInUp}
+                className="bg-slate-50 rounded-xl p-6 text-center hover:bg-slate-100 transition-colors cursor-pointer border border-slate-200"
+              >
+                <div className="text-4xl mb-4">{cert.badge}</div>
+                <h3 className="font-semibold text-slate-900 mb-2">{cert.name}</h3>
+                <p className="text-sm text-slate-600 mb-2">{cert.issuer}</p>
+                <p className="text-xs text-slate-500">{cert.year}</p>
+              </motion.div>
+            ))}
+          </motion.div>
+        </div>
+      </section>
+
+      {/* Personal Details Section */}
+      <section id="personal" className="py-20 bg-slate-50">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+          <motion.div 
+            className="text-center mb-16"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            viewport={{ once: true }}
+          >
+            <h2 className="text-3xl sm:text-4xl font-bold text-slate-900 mb-4">Personal Details</h2>
+            <p className="text-lg text-slate-600 max-w-3xl mx-auto">
+              Get to know me better - my availability, interests, and what drives my passion for development.
+            </p>
+          </motion.div>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <motion.div
+              initial={{ opacity: 0, y: 50 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6 }}
+              viewport={{ once: true }}
+              className="bg-white rounded-xl p-6 shadow-sm border border-slate-200"
+            >
+              <MapPin className="text-primary mb-4 h-6 w-6" />
+              <h3 className="font-semibold text-slate-900 mb-2">Location</h3>
+              <p className="text-slate-600">{personalDetails.location}</p>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, y: 50 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.1 }}
+              viewport={{ once: true }}
+              className="bg-white rounded-xl p-6 shadow-sm border border-slate-200"
+            >
+              <Calendar className="text-primary mb-4 h-6 w-6" />
+              <h3 className="font-semibold text-slate-900 mb-2">Availability</h3>
+              <p className="text-slate-600">{personalDetails.availability}</p>
+              <p className="text-sm text-slate-500 mt-2">{personalDetails.workingHours}</p>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, y: 50 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+              viewport={{ once: true }}
+              className="bg-white rounded-xl p-6 shadow-sm border border-slate-200"
+            >
+              <Mail className="text-primary mb-4 h-6 w-6" />
+              <h3 className="font-semibold text-slate-900 mb-2">Response Time</h3>
+              <p className="text-slate-600">{personalDetails.responseTime}</p>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, y: 50 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.3 }}
+              viewport={{ once: true }}
+              className="bg-white rounded-xl p-6 shadow-sm border border-slate-200"
+            >
+              <h3 className="font-semibold text-slate-900 mb-3">Languages</h3>
+              <div className="space-y-2">
+                {personalDetails.languages.map((language, index) => (
+                  <p key={index} className="text-slate-600 text-sm">{language}</p>
+                ))}
+              </div>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, y: 50 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.4 }}
+              viewport={{ once: true }}
+              className="bg-white rounded-xl p-6 shadow-sm border border-slate-200 md:col-span-2"
+            >
+              <h3 className="font-semibold text-slate-900 mb-3">Interests & Hobbies</h3>
+              <div className="flex flex-wrap gap-2">
+                {personalDetails.interests.map((interest, index) => (
+                  <Badge key={index} variant="outline" className="text-sm">
+                    {interest}
+                  </Badge>
+                ))}
               </div>
             </motion.div>
           </div>
