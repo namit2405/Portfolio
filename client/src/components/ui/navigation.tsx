@@ -47,7 +47,7 @@ export function Navigation({ activeSection }: NavigationProps) {
         <div className="flex justify-between items-center h-16">
           {/* Logo/Name */}
           <div className="flex-shrink-0">
-            <span className="text-xl font-bold text-slate-900">Alex Johnson</span>
+            <span className="text-xl font-bold text-slate-900">Namit Jain</span>
           </div>
 
           {/* Desktop Navigation */}

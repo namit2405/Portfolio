@@ -5,6 +5,14 @@ import { ContactForm } from "@/components/ui/contact-form";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
+import ProfileImage from "../assets/images/Profile.jpeg";
+import Resume from "../assets/documents/Namit_Resume.pdf";
+import Microsoft from "../assets/images/MicrosoftCertificate.jpeg";
+import Olympiad from "../assets/images/olympiad.jpeg";
+import NccCamp from "../assets/images/ncccamp.jpeg";
+import WebdoxLetter from "../assets/images/webdoxletter.jpeg";
+import WebdoxCertificate from "../assets/images/webdoxcertificate.jpeg";
+import BombayCorner from "../assets/images/BombayCorner.jpeg";
 import { 
   Mail, 
   Phone, 
@@ -19,7 +27,9 @@ import {
   Download,
   Award,
   FileText,
-  ExternalLink
+  ExternalLink,
+  Cpu,
+  InstagramIcon
 } from "lucide-react";
 import { motion } from "framer-motion";
 
@@ -104,14 +114,14 @@ export default function Portfolio() {
       issuer: "Microsoft",
       year: "2025",
       badge: "☁️",
-      image: "/assets/images/azure-certificate.jpg"
+      image: Microsoft
     },
     {
       name: "Web Development Using Django Backend",
       issuer: "Webdox Computer Institute",
       year: "2025",
       badge: "🎯",
-      image: "/assets/images/django-certificate.jpg",
+      image: WebdoxCertificate,
       description: "3-Month Comprehensive Course"
     }
   ];
@@ -148,27 +158,27 @@ export default function Portfolio() {
     {
       title: "E-Commerce Website",
       description: "Built a full-stack e-commerce platform with JWT & OTP authentication, product listings, cart, wishlist, and order management. Developed RESTful APIs using Django REST Framework and a responsive React.js frontend with Redux, Axios, and dynamic search/filter features.",
-      image: "/assets/images/ecommerce-project.jpg",
+      image: BombayCorner,
       technologies: ["Django", "Django REST Framework", "React.js", "Redux", "Axios", "JWT", "OTP"],
       liveUrl: "https://namits.shop",
-      githubUrl: "https://github.com/namitjain34"
+      githubUrl: "https://github.com/namit2405"
     },
-    {
-      title: "Weather Forecast Website",
-      description: "Designed a dynamic weather forecasting web app using React.js and OpenWeatherMap API. Implemented real-time weather data fetching with Axios and React Hooks, delivering a clean and interactive user interface.",
-      image: "/assets/images/weather-project.jpg",
-      technologies: ["React.js", "OpenWeather API", "Axios", "React Hooks"],
-      liveUrl: "#",
-      githubUrl: "https://github.com/namitjain34"
-    },
-    {
-      title: "AI Chatbot",
-      description: "Engineered a real-time AI chatbot using React.js and Django Channels over WebSockets. Enabled instant two-way communication between users and the server with dynamic frontend message updates and asynchronous backend processing.",
-      image: "/assets/images/chatbot-project.jpg",
-      technologies: ["React.js", "Django Channels", "WebSockets", "Real-time Communication"],
-      liveUrl: "#",
-      githubUrl: "https://github.com/namitjain34"
-    }
+    // {
+    //   title: "Weather Forecast Website",
+    //   description: "Designed a dynamic weather forecasting web app using React.js and OpenWeatherMap API. Implemented real-time weather data fetching with Axios and React Hooks, delivering a clean and interactive user interface.",
+    //   image: "/assets/images/weather-project.jpg",
+    //   technologies: ["React.js", "OpenWeather API", "Axios", "React Hooks"],
+    //   liveUrl: "#",
+    //   githubUrl: "https://github.com/namitjain34"
+    // },
+    // {
+    //   title: "AI Chatbot",
+    //   description: "Engineered a real-time AI chatbot using React.js and Django Channels over WebSockets. Enabled instant two-way communication between users and the server with dynamic frontend message updates and asynchronous backend processing.",
+    //   image: "/assets/images/chatbot-project.jpg",
+    //   technologies: ["React.js", "Django Channels", "WebSockets", "Real-time Communication"],
+    //   liveUrl: "#",
+    //   githubUrl: "https://github.com/namitjain34"
+    // }
   ];
 
   return (
@@ -199,7 +209,7 @@ export default function Portfolio() {
                 </Button>
                 <Button 
                   variant="outline"
-                  onClick={() => window.open("/assets/documents/namit-resume.pdf", "_blank")}
+                  onClick={() => window.open(Resume, "_blank")}
                   className="border-primary text-primary hover:bg-primary hover:text-white"
                 >
                   <Download className="w-4 h-4 mr-2" />
@@ -221,12 +231,12 @@ export default function Portfolio() {
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.8, delay: 0.2 }}
             >
-              <img 
-                src="/assets/images/profile-photo.jpg" 
-                alt="Namit Jain - Python Full Stack Developer" 
-                className="rounded-2xl shadow-2xl w-80 h-96 object-cover hover-lift"
+                <img
+                  src={ProfileImage}
+                  alt="Namit Jain - Python Full Stack Developer"
+                  className="rounded-2xl shadow-2xl w-80 h-96 object-cover hover-lift"
                 onError={(e) => {
-                  e.currentTarget.src = "/assets/images/placeholder-profile.svg";
+                  e.currentTarget.src = "/src/assets/images/Profile.jpeg";
                 }}
               />
             </motion.div>
@@ -259,9 +269,7 @@ export default function Portfolio() {
             >
               <h3 className="text-2xl font-semibold text-slate-900 mb-6">My Journey</h3>
               <p className="text-slate-600 mb-6 leading-relaxed">
-                With over 5 years of experience in web development, I've had the privilege of working with 
-                startups and established companies to bring their digital visions to life. My approach combines 
-                technical expertise with creative problem-solving to deliver exceptional results.
+                I’m a passionate full-stack developer skilled in Python, Django REST Framework, and React.js. My journey started with a love for technology and grew through hands-on projects like building a complete eCommerce platform with secure authentication and payment integrations. With achievements in coding and design competitions, I continuously learn and aim to build meaningful, user-focused solutions.
               </p>
               <p className="text-slate-600 mb-8 leading-relaxed">
                 When I'm not coding, you can find me exploring new design trends, contributing to open-source 
@@ -299,24 +307,24 @@ export default function Portfolio() {
               <div className="space-y-6">
                 <div className="flex items-center justify-between">
                   <div>
-                    <p className="text-3xl font-bold">50+</p>
-                    <p className="text-blue-100">Projects Completed</p>
+                    <p className="text-3xl font-bold">4+</p>
+                    <p className="text-blue-100">Technologies Mastered</p>
                   </div>
-                  <FolderOpen className="h-8 w-8 text-blue-200" />
+                  <Cpu className="h-8 w-8 text-blue-200" />
                 </div>
                 <div className="flex items-center justify-between">
                   <div>
-                    <p className="text-3xl font-bold">5+</p>
-                    <p className="text-blue-100">Years Experience</p>
+                    <p className="text-3xl font-bold">2+</p>
+                    <p className="text-blue-100">Years of Learning & Development</p>
                   </div>
                   <Calendar className="h-8 w-8 text-blue-200" />
                 </div>
                 <div className="flex items-center justify-between">
                   <div>
-                    <p className="text-3xl font-bold">20+</p>
-                    <p className="text-blue-100">Happy Clients</p>
+                    <p className="text-3xl font-bold">3+</p>
+                    <p className="text-blue-100">Projects Completed</p>
                   </div>
-                  <Users className="h-8 w-8 text-blue-200" />
+                  <FolderOpen className="h-8 w-8 text-blue-200" />
                 </div>
               </div>
             </motion.div>
@@ -336,7 +344,7 @@ export default function Portfolio() {
           >
             <h2 className="text-3xl sm:text-4xl font-bold text-slate-900 mb-4">Professional Experience</h2>
             <p className="text-lg text-slate-600 max-w-3xl mx-auto">
-              My journey through various roles and companies, building expertise in full-stack development.
+              My journey through various roles, building expertise in full-stack development.
             </p>
           </motion.div>
 
@@ -685,8 +693,8 @@ export default function Portfolio() {
                 <h4 className="text-lg font-medium text-slate-900 mb-4">Follow Me</h4>
                 <div className="flex space-x-4">
                   {[
-                    { icon: Github, href: "https://github.com/namitjain34" },
-                    { icon: Linkedin, href: "https://linkedin.com/in/namitjain34" },
+                    { icon: Github, href: "https://github.com/namit2405" },
+                    { icon: Linkedin, href: "https://linkedin.com/in/namit-jain-b7344831a" },
                     { icon: Mail, href: "mailto:jainnamit34@gmail.com" }
                   ].map((social, index) => (
                     <Button
@@ -720,15 +728,15 @@ export default function Portfolio() {
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid md:grid-cols-3 gap-8">
             <div>
-              <h3 className="text-xl font-bold mb-4">Alex Johnson</h3>
+              <h3 className="text-xl font-bold mb-4">Namit Jain</h3>
               <p className="text-slate-400 mb-4">
                 Full-Stack Developer passionate about creating exceptional digital experiences.
               </p>
               <div className="flex space-x-4">
                 {[
-                  { icon: Github, href: "https://github.com" },
-                  { icon: Linkedin, href: "https://linkedin.com" },
-                  { icon: Twitter, href: "https://twitter.com" }
+                  { icon: Github, href: "https://github.com/namit2405" },
+                  { icon: Linkedin, href: "https://linkedin.com/in/namit-jain-b7344831a" },
+                  { icon: InstagramIcon, href: "https://www.instagram.com/namit.here24/" }
                 ].map((social, index) => (
                   <Button
                     key={index}
@@ -762,9 +770,9 @@ export default function Portfolio() {
             <div>
               <h4 className="text-lg font-semibold mb-4">Contact Info</h4>
               <div className="space-y-2">
-                <p className="text-slate-400">alex.johnson@email.com</p>
-                <p className="text-slate-400">+1 (555) 123-4567</p>
-                <p className="text-slate-400">San Francisco, CA</p>
+                <p className="text-slate-400">jainnamit34@gmail.com</p>
+                <p className="text-slate-400">+91 6239881326</p>
+                <p className="text-slate-400">Jalandhar, Punjab</p>
               </div>
             </div>
           </div>
@@ -772,7 +780,7 @@ export default function Portfolio() {
           <hr className="border-slate-700 my-8" />
           
           <div className="text-center text-slate-400">
-            <p>&copy; 2024 Alex Johnson. All rights reserved.</p>
+            <p>&copy; 2025 Namit Jain. All rights reserved.</p>
           </div>
         </div>
       </footer>

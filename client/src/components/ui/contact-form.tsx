@@ -38,10 +38,16 @@ export function ContactForm() {
   });
 
   const contactMutation = useMutation({
-    mutationFn: async (data: ContactFormData) => {
-      const response = await apiRequest("POST", "/api/contact", data);
-      return response.json();
-    },
+   mutationFn: async (data: ContactFormData) => {
+  const response = await fetch("http://localhost:8000/api/contact/", {method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(data),
+        });
+  return response.json();
+}
+,
     onSuccess: (data) => {
       toast({
         title: "Message sent successfully!",
