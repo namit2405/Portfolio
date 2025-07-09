@@ -83,6 +83,17 @@ python manage.py runserver 8000
 ```
 
 #### Terminal 2 - Frontend Server:
+
+**For Windows Users:**
+```cmd
+# Make sure you're in the main project folder
+cd ..
+
+# Use the Windows batch file
+start-windows.bat
+```
+
+**For Mac/Linux Users:**
 ```bash
 # Make sure you're in the main project folder
 cd ..
