@@ -15,7 +15,11 @@ import {
   Dribbble,
   Calendar,
   Users,
-  FolderOpen
+  FolderOpen,
+  Download,
+  Award,
+  FileText,
+  ExternalLink
 } from "lucide-react";
 import { motion } from "framer-motion";
 
@@ -38,7 +42,7 @@ export default function Portfolio() {
 
   useEffect(() => {
     const handleScroll = () => {
-      const sections = ["home", "about", "experience", "education", "certificates", "personal", "projects", "contact"];
+      const sections = ["home", "about", "experience", "education", "certificates", "achievements", "personal", "projects", "contact"];
       const scrollPosition = window.scrollY + 100;
 
       for (const section of sections) {
@@ -67,111 +71,103 @@ export default function Portfolio() {
   };
 
   const skills = [
-    { name: "React", icon: "⚛️" },
-    { name: "Node.js", icon: "🟢" },
     { name: "Python", icon: "🐍" },
-    { name: "Databases", icon: "🗄️" }
+    { name: "Django", icon: "🎯" },
+    { name: "React.js", icon: "⚛️" },
+    { name: "JavaScript", icon: "📜" },
+    { name: "Redux", icon: "🔄" },
+    { name: "HTML/CSS", icon: "🎨" },
+    { name: "Bootstrap", icon: "🅱️" },
+    { name: "Git/GitHub", icon: "🔧" },
+    { name: "JWT/OTP Auth", icon: "🔐" },
+    { name: "RESTful APIs", icon: "🔗" }
   ];
 
   const education = [
     {
-      degree: "Master of Science in Computer Science",
-      school: "Stanford University",
-      year: "2018-2020",
-      description: "Specialized in Machine Learning and Software Engineering"
+      degree: "Bachelor of Computer Applications (BCA)",
+      school: "Guru Nanak Dev University (GNDU), Punjab, India",
+      year: "2023 - Present",
+      description: "Currently pursuing BCA with focus on Full-Stack Development and Software Engineering"
     },
     {
-      degree: "Bachelor of Science in Computer Engineering",
-      school: "UC Berkeley",
-      year: "2014-2018",
-      description: "Summa Cum Laude, Focus on Web Technologies"
+      degree: "Class 12th (Commerce)",
+      school: "Shree Mahavir Jain Sen. Sec. Model School, Jalandhar, Punjab",
+      year: "2022",
+      description: "Completed higher secondary education in Commerce stream"
     }
   ];
 
   const certificates = [
     {
-      name: "AWS Certified Solutions Architect",
-      issuer: "Amazon Web Services",
-      year: "2023",
-      badge: "🏆"
+      name: "Microsoft Certified: Azure Fundamentals (AZ-900)",
+      issuer: "Microsoft",
+      year: "2025",
+      badge: "☁️",
+      image: "/assets/images/azure-certificate.jpg"
     },
     {
-      name: "Google Cloud Professional Developer",
-      issuer: "Google Cloud",
-      year: "2022",
-      badge: "☁️"
-    },
-    {
-      name: "Meta React Native Certification",
-      issuer: "Meta",
-      year: "2022",
-      badge: "📱"
-    },
-    {
-      name: "MongoDB Certified Developer",
-      issuer: "MongoDB",
-      year: "2021",
-      badge: "🍃"
+      name: "Web Development Using Django Backend",
+      issuer: "Webdox Computer Institute",
+      year: "2025",
+      badge: "🎯",
+      image: "/assets/images/django-certificate.jpg",
+      description: "3-Month Comprehensive Course"
     }
   ];
 
   const experience = [
     {
-      title: "Senior Full-Stack Developer",
-      company: "TechFlow Inc.",
-      period: "2022 - Present",
-      description: "Led development of enterprise web applications serving 100K+ users. Architected scalable microservices and mentored junior developers.",
-      technologies: ["React", "Node.js", "AWS", "MongoDB"]
+      title: "Assistant Accountant",
+      company: "Ameka Super Market",
+      period: "Jan 2024 - Present",
+      description: "Managed billing and financial records for ₹10K+ daily transactions. Prepared monthly sales reports and supported daily operations. Maintained 100% accuracy in billing and reporting.",
+      technologies: ["Excel", "Accounting Software", "Data Management"]
     },
     {
-      title: "Frontend Developer",
-      company: "Digital Solutions Co.",
-      period: "2020 - 2022",
-      description: "Built responsive web applications and improved user experience across multiple product lines. Reduced load times by 40%.",
-      technologies: ["Vue.js", "TypeScript", "SASS", "Docker"]
-    },
-    {
-      title: "Junior Web Developer",
-      company: "StartupXYZ",
-      period: "2018 - 2020",
-      description: "Developed MVP features and contributed to product roadmap. Collaborated with design team to implement pixel-perfect interfaces.",
-      technologies: ["JavaScript", "React", "Python", "PostgreSQL"]
+      title: "Web Development Intern (Django Backend)",
+      company: "Webdox Computer Institute",
+      period: "May 2025 - June 2025",
+      description: "Built 10+ RESTful APIs and backend modules using Django REST Framework. Implemented secure authentication (JWT & OTP) for 100+ users. Optimized database queries, improving data retrieval speed.",
+      technologies: ["Django", "Django REST Framework", "Python", "JWT", "OTP Authentication", "PostgreSQL"]
     }
   ];
 
   const personalDetails = {
-    location: "San Francisco, CA",
-    availability: "Available for freelance projects",
-    languages: ["English (Native)", "Spanish (Fluent)", "French (Conversational)"],
-    interests: ["Open Source", "Machine Learning", "Photography", "Rock Climbing"],
-    workingHours: "9 AM - 6 PM PST",
-    responseTime: "Within 24 hours"
+    location: "Jalandhar, Punjab, India",
+    availability: "Available for freelance and full-time opportunities",
+    languages: ["English", "Hindi", "Punjabi"],
+    interests: ["Web Development", "Full-Stack Programming", "Team Collaboration", "Logic Problem Solving"],
+    workingHours: "Flexible",
+    responseTime: "Within 24 hours",
+    phone: "+91 6239881326",
+    email: "jainnamit34@gmail.com"
   };
 
   const projects = [
     {
-      title: "E-Commerce Platform",
-      description: "A full-stack e-commerce solution built with React and Node.js, featuring payment integration and admin dashboard.",
-      image: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=400",
-      technologies: ["React", "Node.js", "MongoDB", "Stripe"],
-      liveUrl: "https://example.com",
-      githubUrl: "https://github.com"
+      title: "E-Commerce Website",
+      description: "Built a full-stack e-commerce platform with JWT & OTP authentication, product listings, cart, wishlist, and order management. Developed RESTful APIs using Django REST Framework and a responsive React.js frontend with Redux, Axios, and dynamic search/filter features.",
+      image: "/assets/images/ecommerce-project.jpg",
+      technologies: ["Django", "Django REST Framework", "React.js", "Redux", "Axios", "JWT", "OTP"],
+      liveUrl: "https://namits.shop",
+      githubUrl: "https://github.com/namitjain34"
     },
     {
-      title: "Task Management App",
-      description: "A collaborative task management tool with real-time updates, drag-and-drop functionality, and team collaboration features.",
-      image: "https://images.unsplash.com/photo-1611224923853-80b023f02d71?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=400",
-      technologies: ["Vue.js", "Firebase", "Tailwind CSS"],
-      liveUrl: "https://example.com",
-      githubUrl: "https://github.com"
+      title: "Weather Forecast Website",
+      description: "Designed a dynamic weather forecasting web app using React.js and OpenWeatherMap API. Implemented real-time weather data fetching with Axios and React Hooks, delivering a clean and interactive user interface.",
+      image: "/assets/images/weather-project.jpg",
+      technologies: ["React.js", "OpenWeather API", "Axios", "React Hooks"],
+      liveUrl: "#",
+      githubUrl: "https://github.com/namitjain34"
     },
     {
-      title: "Analytics Dashboard",
-      description: "A comprehensive analytics dashboard with interactive charts, real-time data, and customizable widgets.",
-      image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=400",
-      technologies: ["React", "D3.js", "Python", "PostgreSQL"],
-      liveUrl: "https://example.com",
-      githubUrl: "https://github.com"
+      title: "AI Chatbot",
+      description: "Engineered a real-time AI chatbot using React.js and Django Channels over WebSockets. Enabled instant two-way communication between users and the server with dynamic frontend message updates and asynchronous backend processing.",
+      image: "/assets/images/chatbot-project.jpg",
+      technologies: ["React.js", "Django Channels", "WebSockets", "Real-time Communication"],
+      liveUrl: "#",
+      githubUrl: "https://github.com/namitjain34"
     }
   ];
 
@@ -185,14 +181,14 @@ export default function Portfolio() {
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <motion.div {...fadeInUp}>
               <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-slate-900 mb-6">
-                Hi, I'm <span className="gradient-text">Alex</span>
+                Hi, I'm <span className="gradient-text">Namit Jain</span>
               </h1>
               <h2 className="text-xl sm:text-2xl text-slate-600 mb-6">
-                Full-Stack Developer & UI/UX Designer
+                Python Full Stack Developer | BCA Student
               </h2>
               <p className="text-lg text-slate-600 mb-8 leading-relaxed">
-                I create beautiful, functional web applications that solve real-world problems. 
-                Passionate about clean code, elegant design, and exceptional user experiences.
+                Full-stack developer skilled in Django REST Framework and React.js for secure, scalable web apps. 
+                Experienced in RESTful APIs, JWT/OTP authentication, and dynamic UIs with Redux and Axios.
               </p>
               <div className="flex flex-col sm:flex-row gap-4">
                 <Button 
@@ -200,6 +196,14 @@ export default function Portfolio() {
                   className="bg-primary text-white hover:bg-blue-700"
                 >
                   View My Work
+                </Button>
+                <Button 
+                  variant="outline"
+                  onClick={() => window.open("/assets/documents/namit-resume.pdf", "_blank")}
+                  className="border-primary text-primary hover:bg-primary hover:text-white"
+                >
+                  <Download className="w-4 h-4 mr-2" />
+                  Download CV
                 </Button>
                 <Button 
                   variant="outline"
@@ -218,9 +222,12 @@ export default function Portfolio() {
               transition={{ duration: 0.8, delay: 0.2 }}
             >
               <img 
-                src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&h=600" 
-                alt="Professional developer portrait" 
+                src="/assets/images/profile-photo.jpg" 
+                alt="Namit Jain - Python Full Stack Developer" 
                 className="rounded-2xl shadow-2xl w-80 h-96 object-cover hover-lift"
+                onError={(e) => {
+                  e.currentTarget.src = "/assets/images/placeholder-profile.svg";
+                }}
               />
             </motion.div>
           </div>
@@ -430,14 +437,74 @@ export default function Portfolio() {
               <motion.div
                 key={index}
                 variants={fadeInUp}
-                className="bg-slate-50 rounded-xl p-6 text-center hover:bg-slate-100 transition-colors cursor-pointer border border-slate-200"
+                className="bg-slate-50 rounded-xl p-6 text-center hover:bg-slate-100 transition-colors cursor-pointer border border-slate-200 group"
+                onClick={() => cert.image && window.open(cert.image, "_blank")}
               >
                 <div className="text-4xl mb-4">{cert.badge}</div>
                 <h3 className="font-semibold text-slate-900 mb-2">{cert.name}</h3>
                 <p className="text-sm text-slate-600 mb-2">{cert.issuer}</p>
-                <p className="text-xs text-slate-500">{cert.year}</p>
+                <p className="text-xs text-slate-500 mb-2">{cert.year}</p>
+                {cert.description && <p className="text-xs text-slate-400">{cert.description}</p>}
+                <div className="mt-3 opacity-0 group-hover:opacity-100 transition-opacity">
+                  <ExternalLink className="w-4 h-4 mx-auto text-primary" />
+                  <p className="text-xs text-primary mt-1">View Certificate</p>
+                </div>
               </motion.div>
             ))}
+          </motion.div>
+        </div>
+      </section>
+
+      {/* Achievements Section */}
+      <section id="achievements" className="py-20 bg-white">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+          <motion.div 
+            className="text-center mb-16"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            viewport={{ once: true }}
+          >
+            <h2 className="text-3xl sm:text-4xl font-bold text-slate-900 mb-4">Achievements & Activities</h2>
+            <p className="text-lg text-slate-600 max-w-3xl mx-auto">
+              Recognition and activities that showcase my commitment to excellence and continuous learning.
+            </p>
+          </motion.div>
+
+          <motion.div 
+            className="grid md:grid-cols-2 gap-8"
+            variants={staggerContainer}
+            initial="initial"
+            whileInView="animate"
+            viewport={{ once: true }}
+          >
+            <motion.div variants={fadeInUp} className="bg-gradient-to-r from-yellow-50 to-orange-50 rounded-xl p-6 border border-yellow-200">
+              <Award className="text-yellow-600 mb-4 h-8 w-8" />
+              <h3 className="font-semibold text-slate-900 mb-2">Winner - Logic Making Competition</h3>
+              <p className="text-slate-600 mb-2">College IT Fest 2025</p>
+              <p className="text-sm text-slate-500">Demonstrated exceptional problem-solving skills and logical thinking abilities</p>
+            </motion.div>
+
+            <motion.div variants={fadeInUp} className="bg-gradient-to-r from-blue-50 to-indigo-50 rounded-xl p-6 border border-blue-200">
+              <Users className="text-blue-600 mb-4 h-8 w-8" />
+              <h3 className="font-semibold text-slate-900 mb-2">College Website Development Team</h3>
+              <p className="text-slate-600 mb-2">Active Member</p>
+              <p className="text-sm text-slate-500">Contributing to college web development projects and initiatives</p>
+            </motion.div>
+
+            <motion.div variants={fadeInUp} className="bg-gradient-to-r from-green-50 to-emerald-50 rounded-xl p-6 border border-green-200">
+              <FolderOpen className="text-green-600 mb-4 h-8 w-8" />
+              <h3 className="font-semibold text-slate-900 mb-2">NCC Camp Participation</h3>
+              <p className="text-slate-600 mb-2">Lovely Professional University</p>
+              <p className="text-sm text-slate-500">10-day intensive camp focusing on leadership and discipline</p>
+            </motion.div>
+
+            <motion.div variants={fadeInUp} className="bg-gradient-to-r from-purple-50 to-pink-50 rounded-xl p-6 border border-purple-200">
+              <Award className="text-purple-600 mb-4 h-8 w-8" />
+              <h3 className="font-semibold text-slate-900 mb-2">2nd Rank - City Olympiad</h3>
+              <p className="text-slate-600 mb-2">Jalandhar City Level</p>
+              <p className="text-sm text-slate-500">Academic excellence recognition at school level</p>
+            </motion.div>
           </motion.div>
         </div>
       </section>
@@ -602,15 +669,15 @@ export default function Portfolio() {
               <div className="space-y-4">
                 <div className="flex items-center">
                   <Mail className="text-primary text-xl w-6 mr-4" />
-                  <span className="text-slate-600">alex.johnson@email.com</span>
+                  <span className="text-slate-600">{personalDetails.email}</span>
                 </div>
                 <div className="flex items-center">
                   <Phone className="text-primary text-xl w-6 mr-4" />
-                  <span className="text-slate-600">+1 (555) 123-4567</span>
+                  <span className="text-slate-600">{personalDetails.phone}</span>
                 </div>
                 <div className="flex items-center">
                   <MapPin className="text-primary text-xl w-6 mr-4" />
-                  <span className="text-slate-600">San Francisco, CA</span>
+                  <span className="text-slate-600">{personalDetails.location}</span>
                 </div>
               </div>
               
@@ -618,10 +685,9 @@ export default function Portfolio() {
                 <h4 className="text-lg font-medium text-slate-900 mb-4">Follow Me</h4>
                 <div className="flex space-x-4">
                   {[
-                    { icon: Github, href: "https://github.com" },
-                    { icon: Linkedin, href: "https://linkedin.com" },
-                    { icon: Twitter, href: "https://twitter.com" },
-                    { icon: Dribbble, href: "https://dribbble.com" }
+                    { icon: Github, href: "https://github.com/namitjain34" },
+                    { icon: Linkedin, href: "https://linkedin.com/in/namitjain34" },
+                    { icon: Mail, href: "mailto:jainnamit34@gmail.com" }
                   ].map((social, index) => (
                     <Button
                       key={index}
