@@ -2,7 +2,7 @@
 
 ## Overview
 
-This is a modern portfolio website built as a full-stack application featuring a React frontend with TypeScript, Express backend, and PostgreSQL database integration. The application showcases personal projects, skills, and includes a contact form for potential clients or employers to reach out.
+This is a modern portfolio website built as a full-stack application featuring a React frontend with TypeScript, Django REST API backend, and SQLite database. The application showcases personal projects, skills, experience, education, certifications, and includes a contact form for potential clients or employers to reach out.
 
 ## User Preferences
 
@@ -20,58 +20,52 @@ Preferred communication style: Simple, everyday language.
 - **Build Tool**: Vite for fast development and optimized builds
 
 ### Backend Architecture
-- **Runtime**: Node.js with Express framework
-- **Language**: TypeScript with ES modules
+- **Framework**: Django 5.2.4 with Django REST Framework
+- **Language**: Python 3.11
 - **API Design**: RESTful API structure
-- **Database ORM**: Drizzle ORM for type-safe database operations
-- **Validation**: Zod schemas for data validation
-- **Development**: Hot reload with Vite integration
+- **Database**: SQLite for development (easily configurable for PostgreSQL in production)
+- **Validation**: Django model validation and DRF serializers
+- **Development**: Django's built-in development server with auto-reload
 
 ### Data Storage
-- **Database**: PostgreSQL (configured for Neon Database)
-- **ORM**: Drizzle ORM with migrations support
-- **Schema**: Type-safe database schema definitions
-- **Fallback**: In-memory storage implementation for development
+- **Database**: SQLite for development (Django default)
+- **ORM**: Django ORM with built-in migrations
+- **Models**: Django models with automatic field validation
+- **Admin Interface**: Django admin panel for data management
 
 ## Key Components
 
 ### Core Features
-1. **Portfolio Showcase**: Personal information, skills, and project display
-2. **Contact Form**: Functional contact form with validation and database storage
-3. **Responsive Design**: Mobile-first approach with Tailwind CSS
-4. **Component Library**: Comprehensive UI components using Radix UI primitives
+1. **Portfolio Showcase**: Personal information, skills, experience, education, and project display
+2. **Professional Sections**: Experience timeline, education history, certifications, and personal details
+3. **Contact Form**: Functional contact form with validation and database storage
+4. **Responsive Design**: Mobile-first approach with Tailwind CSS
+5. **Component Library**: Comprehensive UI components using Radix UI primitives
+6. **Admin Interface**: Django admin panel for managing contact submissions
 
-### Database Schema
-```typescript
-// Users table for potential future authentication
-users: {
-  id: serial primary key
-  username: text unique
-  password: text
-}
-
-// Contact form submissions
-contacts: {
-  id: serial primary key
-  name: text
-  email: text
-  message: text
-  createdAt: timestamp
-}
+### Database Models
+```python
+# Contact model for form submissions
+class Contact(models.Model):
+    name = models.CharField(max_length=100)
+    email = models.EmailField()
+    message = models.TextField()
+    created_at = models.DateTimeField(auto_now_add=True)
 ```
 
 ### API Endpoints
-- `POST /api/contact` - Submit contact form
-- `GET /api/contacts` - Retrieve all contact submissions (admin functionality)
+- `POST /api/contact/` - Submit contact form
+- `GET /api/contacts/` - Retrieve all contact submissions (admin functionality)
+- Django admin panel at `/admin/` for data management
 
 ## Data Flow
 
 1. **Contact Form Submission**:
    - User fills out contact form in React frontend
    - Form data validated using Zod schema on client-side
-   - Submitted via TanStack Query mutation to Express backend
-   - Backend validates data again using shared Zod schema
-   - Data stored in PostgreSQL database via Drizzle ORM
+   - Submitted via TanStack Query mutation to Django REST API backend
+   - Backend validates data using Django REST Framework serializers
+   - Data stored in SQLite database via Django ORM
    - Success/error feedback shown to user via toast notifications
 
 2. **Project Display**:
@@ -99,16 +93,16 @@ contacts: {
 - **Utilities**: date-fns, class-variance-authority
 
 ### Backend Dependencies
-- **Server**: express
-- **Database**: @neondatabase/serverless, drizzle-orm
-- **Validation**: drizzle-zod
-- **Development**: tsx, esbuild
+- **Framework**: django, djangorestframework
+- **Database**: SQLite (Django default)
+- **CORS**: django-cors-headers
+- **Environment**: python-dotenv
 
 ### Development Tools
 - **Build**: vite, @vitejs/plugin-react
 - **TypeScript**: typescript
 - **CSS**: postcss, autoprefixer
-- **Database**: drizzle-kit for migrations
+- **Database**: Django migrations system
 
 ## Deployment Strategy
 
