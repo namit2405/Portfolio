@@ -39,7 +39,7 @@ export function ContactForm() {
 
   const contactMutation = useMutation({
    mutationFn: async (data: ContactFormData) => {
-  const response = await fetch("http://localhost:8000/api/contact/", {method: "POST",
+  const response = await fetch("https://portfolio.namits.shop/api/contact/", {method: "POST",
           headers: {
             "Content-Type": "application/json",
           },
