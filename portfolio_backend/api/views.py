@@ -5,13 +5,15 @@ from rest_framework.permissions import AllowAny
 from rest_framework.decorators import api_view, permission_classes
 from django.views.decorators.csrf import csrf_exempt
 from django.utils.decorators import method_decorator
+
 from .models import Contact
 from .serializers import ContactSerializer
 
 
-@method_decorator(csrf_exempt, name='dispatch')  # Exempt CSRF for this public API
+@method_decorator(csrf_exempt, name='dispatch')  # CSRF exempt for class-based view
 class ContactCreateView(APIView):
-    permission_classes = [AllowAny]  # Allow public access
+    permission_classes = [AllowAny]  # Public access
+    authentication_classes = []      # Disable authentication
 
     def post(self, request):
         serializer = ContactSerializer(data=request.data)
@@ -31,11 +33,8 @@ class ContactCreateView(APIView):
 
 
 @api_view(['GET'])
-@permission_classes([AllowAny])  # Allow public access to this endpoint too (optional)
+@permission_classes([AllowAny])  # Optional: make contact list public
 def contact_list(request):
-    """
-    Get all contact form submissions
-    """
     contacts = Contact.objects.all()
     serializer = ContactSerializer(contacts, many=True)
     return Response(serializer.data)
