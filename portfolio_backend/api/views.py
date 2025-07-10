@@ -1,19 +1,19 @@
+from rest_framework.views import APIView
+from rest_framework.response import Response
 from rest_framework import status
 from rest_framework.permissions import AllowAny
-from rest_framework.response import Response
-from rest_framework.views import APIView
-from rest_framework.decorators import api_view
+from rest_framework.decorators import api_view, permission_classes
+from django.views.decorators.csrf import csrf_exempt
+from django.utils.decorators import method_decorator
 from .models import Contact
 from .serializers import ContactSerializer
 
 
+@method_decorator(csrf_exempt, name='dispatch')  # Exempt CSRF for this public API
 class ContactCreateView(APIView):
-    permission_classes = [AllowAny]  # Allow access without authentication
+    permission_classes = [AllowAny]  # Allow public access
 
     def post(self, request):
-        """
-        Create a new contact form submission
-        """
         serializer = ContactSerializer(data=request.data)
         if serializer.is_valid():
             contact = serializer.save()
@@ -31,6 +31,7 @@ class ContactCreateView(APIView):
 
 
 @api_view(['GET'])
+@permission_classes([AllowAny])  # Allow public access to this endpoint too (optional)
 def contact_list(request):
     """
     Get all contact form submissions
